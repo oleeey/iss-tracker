@@ -1,4 +1,3 @@
-from urllib.request import urlopen
 import time, requests, turtle
 
 def getData():
@@ -6,7 +5,6 @@ def getData():
     longitude = response.json()["iss_position"]["longitude"]
     latitude = response.json()["iss_position"]["latitude"]
     return [longitude, latitude]
-
 
 screen = turtle.Screen()
 screen.setup(1280, 720)
@@ -22,13 +20,3 @@ iss.penup()
 while True:
     iss.goto(float(getData()[0]), float(getData()[1]))
     time.sleep(5)
-
-
-
-
-
-    
-
-
-
-
