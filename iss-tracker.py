@@ -4,7 +4,7 @@ def getData():
     response = requests.get("http://api.open-notify.org/iss-now.json")
     longitude = response.json()["iss_position"]["longitude"]
     latitude = response.json()["iss_position"]["latitude"]
-    return [longitude, latitude]
+    return [float(longitude), float(latitude)]
 
 screen = turtle.Screen()
 screen.setup(1280, 720)
@@ -18,5 +18,5 @@ iss.setheading(45)
 iss.penup()
 
 while True:
-    iss.goto(float(getData()[0]), float(getData()[1]))
+    iss.goto(getData()[0], getData()[1])
     time.sleep(5)
